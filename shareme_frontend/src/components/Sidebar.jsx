@@ -5,11 +5,12 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 import logo from '../assets/logo.png';
 
-const handleCloseSidebar = () => {
-  
-}
 
 const Sidebar = ({ user, closeToggle }) => {
+  const handleCloseSidebar = () => {
+    if (closeToggle) closeToggle(false);
+  }
+
   return (
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 overflow-hidden">
       <div className="flex flex-col">
@@ -20,6 +21,15 @@ const Sidebar = ({ user, closeToggle }) => {
         >
           <img src={logo} alt="logo" className="w-full" />
         </Link>
+
+        <div className="flex flex-col gap-5">
+          <NavLink
+            to="/"
+            className={({ isActive }) => isActive ? isActiveStyle : isNotActiveStyle}
+          >
+
+          </NavLink>
+        </div>
       </div>
     </div>
   )
